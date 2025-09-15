@@ -1,6 +1,6 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
-name: My workflow
+name: ecr-workflow
 on:
   push:
     branches:
@@ -31,6 +31,6 @@ jobs:
         uses: cloudbees-io/kaniko@v1
         kind: build
         with:
-          destination: 020229604682.dkr.ecr.us-east-1.amazonaws.com/throwaway/actions/vulnerable-image:Tag1
+          destination: 020229604682.dkr.ecr.us-east-1.amazonaws.com/throwaway/actions/vulnerable-image-ecr:Tag1
           tar-path: container-image.tar
           build-args: USER=cbp,TOKEN=${{ secrets.GH_SECURITY_PAT }}
